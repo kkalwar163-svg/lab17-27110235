@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1F4D3A">
+    <meta name="description" content="Homestyle handi, rice and meetha delivered garam to LUMS hostels.">
+    <title>Ghar Ki Handi | Dinner, sorted</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: light;
+        --terracotta: #B5462F;
+        --green: #1F4D3A;
+        --saffron: #F2A93B;
+        --cream: #FFF7EC;
+        --charcoal: #2B2B2B;
+        --heading: "Fraunces", Georgia, serif;
+        --body: "Nunito", Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 6rem;
+      }
+
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--charcoal);
+        font-family: var(--body);
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      button,
+      .button {
+        min-height: 44px;
+        border: 0;
+        border-radius: 12px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      button:focus-visible,
+      a:focus-visible,
+      input:focus-visible {
+        outline: 3px solid var(--saffron);
+        outline-offset: 3px;
+      }
+
+      .site-header {
+        background: var(--green);
+        color: var(--cream);
+      }
+
+      .header-inner {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 18px 0 14px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px 24px;
+      }
+
+      .brand {
+        text-decoration: none;
+      }
+
+      .brand-name {
+        display: block;
+        font-family: var(--heading);
+        font-size: 1.55rem;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+
+      .tagline {
+        display: block;
+        margin-top: 4px;
+        font-size: 0.88rem;
+      }
+
+      .main-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+      }
+
+      .main-nav a {
+        padding: 8px 0;
+        font-size: 0.94rem;
+        font-weight: 800;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 5px;
+      }
+
+      .hero {
+        overflow: hidden;
+        background: var(--green);
+        color: var(--cream);
+      }
+
+      .hero-inner {
+        width: min(1120px, calc(100% - 32px));
+        min-height: 390px;
+        margin: 0 auto;
+        padding: 52px 0 64px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(210px, 0.8fr);
+        align-items: center;
+        gap: 32px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--terracotta);
+        font-size: 0.83rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .hero .eyebrow {
+        color: var(--saffron);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--heading);
+        line-height: 1.12;
+      }
+
+      h1 {
+        max-width: 680px;
+        margin-bottom: 18px;
+        font-size: clamp(2.5rem, 7vw, 4.65rem);
+        letter-spacing: -0.035em;
+      }
+
+      .hero-copy {
+        max-width: 540px;
+        margin-bottom: 26px;
+        font-size: 1.1rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 20px;
+        background: var(--terracotta);
+        color: var(--cream);
+        text-decoration: none;
+        transition: transform 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero-art {
+        justify-self: center;
+        width: min(290px, 100%);
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        border: 2px solid var(--saffron);
+        border-radius: 50%;
+        background: var(--cream);
+        color: var(--terracotta);
+        font-size: clamp(6.5rem, 19vw, 10rem);
+        line-height: 1;
+        transform: rotate(5deg);
+      }
+
+      .section {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 64px 0;
+      }
+
+      .section-heading {
+        max-width: 670px;
+        margin-bottom: 30px;
+      }
+
+      .section-heading h2 {
+        margin-bottom: 10px;
+        color: var(--terracotta);
+        font-size: clamp(2rem, 5vw, 3rem);
+      }
+
+      .section-heading p {
+        margin-bottom: 0;
+      }
+
+      .menu-category + .menu-category {
+        margin-top: 42px;
+      }
+
+      .category-title {
+        margin-bottom: 16px;
+        color: var(--green);
+        font-size: 1.65rem;
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .menu-card {
+        min-width: 0;
+        padding: 19px;
+        border: 1px solid var(--green);
+        border-radius: 20px;
+        background: var(--cream);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .dish-emoji {
+        margin-bottom: 12px;
+        font-size: 2rem;
+        line-height: 1;
+      }
+
+      .dish-card-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .bestseller-badge {
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: var(--saffron);
+        color: var(--charcoal);
+        font-size: 0.78rem;
+        font-weight: 800;
+        line-height: 1.3;
+        white-space: nowrap;
+      }
+
+      .dish-name {
+        margin-bottom: 7px;
+        color: var(--terracotta);
+        font-size: 1.32rem;
+      }
+
+      .dish-description {
+        min-height: 3.1em;
+        margin-bottom: 13px;
+        font-size: 0.94rem;
+      }
+
+      .dish-meta {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .dish-price {
+        color: var(--green);
+        font-weight: 800;
+      }
+
+      .spice {
+        white-space: nowrap;
+        font-size: 0.9rem;
+      }
+
+      .card-actions {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .quantity {
+        min-width: 54px;
+        text-align: center;
+        font-weight: 800;
+      }
+
+      .add-button,
+      .remove-button {
+        min-width: 48px;
+        padding: 8px 14px;
+      }
+
+      .add-button {
+        background: var(--terracotta);
+        color: var(--cream);
+      }
+
+      .remove-button {
+        border: 1px solid var(--green);
+        background: var(--cream);
+        color: var(--green);
+      }
+
+      .order-section {
+        width: 100%;
+        background: var(--saffron);
+      }
+
+      .order-inner {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 64px 0;
+      }
+
+      .order-inner .section-heading h2 {
+        color: var(--terracotta);
+      }
+
+      .order-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        align-items: start;
+        gap: 22px;
+      }
+
+      .order-panel,
+      .form-panel {
+        padding: 24px;
+        border: 1px solid var(--green);
+        border-radius: 20px;
+        background: var(--cream);
+      }
+
+      .panel-title {
+        margin-bottom: 18px;
+        color: var(--green);
+        font-size: 1.55rem;
+      }
+
+      .order-items {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .order-row {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--green);
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .empty-order {
+        margin: 0 0 18px;
+      }
+
+      .totals {
+        margin: 18px 0 0;
+      }
+
+      .total-row {
+        padding: 5px 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .total-row strong {
+        color: var(--green);
+      }
+
+      .grand-total {
+        margin-top: 8px;
+        padding-top: 12px;
+        border-top: 2px solid var(--green);
+        font-size: 1.2rem;
+        font-weight: 800;
+      }
+
+      .delivery-note,
+      .form-note {
+        margin: 12px 0 0;
+        font-size: 0.9rem;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .field-full {
+        grid-column: 1 / -1;
+      }
+
+      label {
+        font-size: 0.93rem;
+        font-weight: 800;
+      }
+
+      input {
+        width: 100%;
+        min-height: 48px;
+        padding: 10px 12px;
+        border: 1px solid var(--green);
+        border-radius: 10px;
+        background: var(--cream);
+        color: var(--charcoal);
+      }
+
+      input::placeholder {
+        color: var(--charcoal);
+        opacity: 0.7;
+      }
+
+      .submit-button {
+        width: 100%;
+        margin-top: 18px;
+        padding: 12px 18px;
+        background: var(--terracotta);
+        color: var(--cream);
+      }
+
+      .form-error {
+        min-height: 1.4em;
+        margin: 10px 0 0;
+        color: var(--terracotta);
+        font-weight: 800;
+      }
+
+      .confirmation {
+        margin-top: 20px;
+        padding: 20px;
+        border: 2px solid var(--green);
+        border-radius: 16px;
+        background: var(--cream);
+      }
+
+      .confirmation h3 {
+        margin-bottom: 8px;
+        color: var(--terracotta);
+        font-size: 1.5rem;
+      }
+
+      .confirmation p:last-child {
+        margin-bottom: 0;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      .site-footer {
+        background: var(--green);
+        color: var(--cream);
+      }
+
+      .footer-inner {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px 24px;
+      }
+
+      .footer-inner p {
+        margin: 0;
+      }
+
+      @media (max-width: 760px) {
+        .hero-inner {
+          min-height: 0;
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding: 44px 0 50px;
+        }
+
+        .hero-art {
+          width: 190px;
+          font-size: 6.5rem;
+        }
+
+        .menu-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .order-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header-inner {
+          align-items: flex-start;
+        }
+
+        .main-nav {
+          width: 100%;
+          justify-content: space-between;
+          gap: 8px;
+        }
+
+        .main-nav a {
+          font-size: 0.86rem;
+        }
+
+        .section,
+        .order-inner {
+          padding-top: 48px;
+          padding-bottom: 48px;
+        }
+
+        .menu-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .dish-description {
+          min-height: 0;
+        }
+
+        .order-panel,
+        .form-panel {
+          padding: 18px;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .field-full {
+          grid-column: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#home" aria-label="Ghar Ki Handi home">
+          <span class="brand-name">Ghar Ki Handi</span>
+          <span class="tagline">Ghar jaisa khana, seedha hostel tak.</span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#menu">Menu</a>
+          <a href="#order">Your order</a>
+          <a href="#contact">Delivery info</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">Dinner, sorted</p>
+            <h1 id="hero-title">A little taste of home, right at your hostel.</h1>
+            <p class="hero-copy">Fresh, homestyle favourites made with care and delivered garam to your LUMS hostel. Pick your dinner, yaar.</p>
+            <a class="button" href="#menu">Order tonight</a>
+          </div>
+          <div class="hero-art" aria-hidden="true">🍲</div>
+        </div>
+      </section>
+
+      <section class="section" id="menu" aria-labelledby="menu-title">
+        <div class="section-heading">
+          <p class="eyebrow">Made fresh tonight</p>
+          <h2 id="menu-title">The menu</h2>
+          <p>Comfort food, generous portions, and just the right amount of ghar ka pyaar.</p>
+        </div>
+
+        <div class="menu-category">
+          <h3 class="category-title">Handi</h3>
+          <div class="menu-grid">
+            <article class="menu-card" data-id="chicken-handi" data-name="Chicken Handi" data-price="650">
+              <div class="dish-card-top">
+                <span class="dish-emoji" aria-hidden="true">🍛</span>
+                <span class="bestseller-badge">Bestseller</span>
+              </div>
+              <h3 class="dish-name">Chicken Handi</h3>
+              <p class="dish-description">Tender chicken in a creamy, slow-cooked tomato gravy.</p>
+              <div class="dish-meta"><span class="dish-price">Rs 650</span><span class="spice" aria-label="2 out of 3 spice">🌶️🌶️</span></div>
+              <div class="card-actions">
+                <button class="remove-button" type="button" data-action="remove" aria-label="Remove one Chicken Handi">−</button>
+                <output class="quantity" aria-live="polite" aria-label="Chicken Handi quantity">0</output>
+                <button class="add-button" type="button" data-action="add" aria-label="Add one Chicken Handi">Add +</button>
+              </div>
+            </article>
+            <article class="menu-card" data-id="beef-handi" data-name="Beef Handi" data-price="750">
+              <span class="dish-emoji" aria-hidden="true">🥘</span>
+              <h3 class="dish-name">Beef Handi</h3>
+              <p class="dish-description">Soft beef simmered low and slow with warm house spices.</p>
+              <div class="dish-meta"><span class="dish-price">Rs 750</span><span class="spice" aria-label="3 out of 3 spice">🌶️🌶️🌶️</span></div>
+              <div class="card-actions">
+                <button class="remove-button" type="button" data-action="remove" aria-label="Remove one Beef Handi">−</button>
+                <output class="quantity" aria-live="polite" aria-label="Beef Handi quantity">0</output>
+                <button class="add-button" type="button" data-action="add" aria-label="Add one Beef Handi">Add +</button>
+              </div>
+            </article>
+            <article class="menu-card" data-id="daal-handi" data-name="Daal Handi" data-price="450">
+              <span class="dish-emoji" aria-hidden="true">🍲</span>
+              <h3 class="dish-name">Daal Handi</h3>
+              <p class="dish-description">Creamy lentils finished with a fragrant garlic tarka.</p>
+              <div class="dish-meta"><span class="dish-price">Rs 450</span><span class="spice" aria-label="1 out of 3 spice">🌶️</span></div>
+              <div class="card-actions">
+                <button class="remove-button" type="button" data-action="remove" aria-label="Remove one Daal Handi">−</button>
+                <output class="quantity" aria-live="polite" aria-label="Daal Handi quantity">0</output>
+                <button class="add-button" type="button" data-action="add" aria-label="Add one Daal Handi">Add +</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3 class="category-title">Rice</h3>
+          <div class="menu-grid">
+            <article class="menu-card" data-id="chicken-biryani" data-name="Chicken Biryani" data-price="500">
+              <div class="dish-card-top">
+                <span class="dish-emoji" aria-hidden="true">🍚</span>
+                <span class="bestseller-badge">Bestseller</span>
+              </div>
+              <h3 class="dish-name">Chicken Biryani</h3>
+              <p class="dish-description">Fragrant basmati layered with spiced chicken and herbs.</p>
+              <div class="dish-meta"><span class="dish-price">Rs 500</span><span class="spice" aria-label="2 out of 3 spice">🌶️🌶️</span></div>
+              <div class="card-actions">
+                <button class="remove-button" type="button" data-action="remove" aria-label="Remove one Chicken Biryani">−</button>
+                <output class="quantity" aria-live="polite" aria-label="Chicken Biryani quantity">0</output>
+                <button class="add-button" type="button" data-action="add" aria-label="Add one Chicken Biryani">Add +</button>
+              </div>
+            </article>
+            <article class="menu-card" data-id="chicken-pulao" data-name="Chicken Pulao" data-price="450">
+              <span class="dish-emoji" aria-hidden="true">🍛</span>
+              <h3 class="dish-name">Chicken Pulao</h3>
+              <p class="dish-description">Mellow, aromatic rice cooked in a rich chicken yakhni.</p>
+              <div class="dish-meta"><span class="dish-price">Rs 450</span><span class="spice" aria-label="1 out of 3 spice">🌶️</span></div>
+              <div class="card-actions">
+                <button class="remove-button" type="button" data-action="remove" aria-label="Remove one Chicken Pulao">−</button>
+                <output class="quantity" aria-live="polite" aria-label="Chicken Pulao quantity">0</output>
+                <button class="add-button" type="button" data-action="add" aria-label="Add one Chicken Pulao">Add +</button>
+              </div>
+            </article>
+            <article class="menu-card" data-id="chana-pulao" data-name="Chana Pulao" data-price="400">
+              <span class="dish-emoji" aria-hidden="true">🍚</span>
+              <h3 class="dish-name">Chana Pulao</h3>
+              <p class="dish-description">Comforting basmati and chickpeas with gentle whole spices.</p>
+              <div class="dish-meta"><span class="dish-price">Rs 400</span><span class="spice" aria-label="1 out of 3 spice">🌶️</span></div>
+              <div class="card-actions">
+                <button class="remove-button" type="button" data-action="remove" aria-label="Remove one Chana Pulao">−</button>
+                <output class="quantity" aria-live="polite" aria-label="Chana Pulao quantity">0</output>
+                <button class="add-button" type="button" data-action="add" aria-label="Add one Chana Pulao">Add +</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3 class="category-title">Meetha</h3>
+          <div class="menu-grid">
+            <article class="menu-card" data-id="kheer" data-name="Kheer" data-price="250">
+              <span class="dish-emoji" aria-hidden="true">🍮</span>
+              <h3 class="dish-name">Kheer</h3>
+              <p class="dish-description">Slow-cooked rice pudding with cardamom and a little crunch.</p>
+              <div class="dish-meta"><span class="dish-price">Rs 250</span><span class="spice" aria-label="1 out of 3 spice">🌶️</span></div>
+              <div class="card-actions">
+                <button class="remove-button" type="button" data-action="remove" aria-label="Remove one Kheer">−</button>
+                <output class="quantity" aria-live="polite" aria-label="Kheer quantity">0</output>
+                <button class="add-button" type="button" data-action="add" aria-label="Add one Kheer">Add +</button>
+              </div>
+            </article>
+            <article class="menu-card" data-id="gulab-jamun" data-name="Gulab Jamun" data-price="200">
+              <span class="dish-emoji" aria-hidden="true">🍩</span>
+              <h3 class="dish-name">Gulab Jamun</h3>
+              <p class="dish-description">Two soft, syrupy bites of classic desi sweetness.</p>
+              <div class="dish-meta"><span class="dish-price">Rs 200</span><span class="spice" aria-label="1 out of 3 spice">🌶️</span></div>
+              <div class="card-actions">
+                <button class="remove-button" type="button" data-action="remove" aria-label="Remove one Gulab Jamun">−</button>
+                <output class="quantity" aria-live="polite" aria-label="Gulab Jamun quantity">0</output>
+                <button class="add-button" type="button" data-action="add" aria-label="Add one Gulab Jamun">Add +</button>
+              </div>
+            </article>
+            <article class="menu-card" data-id="suji-halwa" data-name="Suji Halwa" data-price="250">
+              <span class="dish-emoji" aria-hidden="true">🍯</span>
+              <h3 class="dish-name">Suji Halwa</h3>
+              <p class="dish-description">Warm semolina halwa with ghee, nuts and cardamom.</p>
+              <div class="dish-meta"><span class="dish-price">Rs 250</span><span class="spice" aria-label="1 out of 3 spice">🌶️</span></div>
+              <div class="card-actions">
+                <button class="remove-button" type="button" data-action="remove" aria-label="Remove one Suji Halwa">−</button>
+                <output class="quantity" aria-live="polite" aria-label="Suji Halwa quantity">0</output>
+                <button class="add-button" type="button" data-action="add" aria-label="Add one Suji Halwa">Add +</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="order-section" id="order" aria-labelledby="order-title">
+        <div class="order-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Just a few details</p>
+            <h2 id="order-title">Your order</h2>
+            <p>Review your picks, tell us where to find you, and dinner is on its way.</p>
+          </div>
+          <div class="order-layout">
+            <section class="order-panel" aria-labelledby="summary-title">
+              <h3 class="panel-title" id="summary-title">Order summary</h3>
+              <p class="empty-order" id="empty-order">Your handi is waiting. Add something tasty from the menu.</p>
+              <ul class="order-items" id="order-items" aria-live="polite"></ul>
+              <div class="totals">
+                <div class="total-row"><span>Subtotal</span><strong id="subtotal">Rs 0</strong></div>
+                <div class="total-row"><span>Delivery</span><strong id="delivery-fee">Rs 0</strong></div>
+                <div class="total-row grand-total"><span>Total</span><span id="grand-total">Rs 0</span></div>
+              </div>
+              <p class="delivery-note" id="delivery-note">Delivery is Rs 100, or free when your food adds up to Rs 1,500.</p>
+            </section>
+
+            <section class="form-panel" aria-labelledby="details-title">
+              <h3 class="panel-title" id="details-title">Delivery details</h3>
+              <form id="order-form">
+                <div class="form-grid">
+                  <div class="field field-full">
+                    <label for="customer-name">Your name</label>
+                    <input id="customer-name" name="name" autocomplete="name" required>
+                  </div>
+                  <div class="field">
+                    <label for="hostel">Hostel</label>
+                    <input id="hostel" name="hostel" autocomplete="organization" required>
+                  </div>
+                  <div class="field">
+                    <label for="room">Room number</label>
+                    <input id="room" name="room" required>
+                  </div>
+                  <div class="field field-full">
+                    <label for="phone">Phone number</label>
+                    <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" pattern="03[0-9]{9}" minlength="11" maxlength="11" aria-describedby="phone-help" required>
+                    <span class="form-note" id="phone-help">Phone format: 0300-1234567. Enter the 11 digits only, without the dash.</span>
+                  </div>
+                </div>
+                <p class="form-error" id="form-error" role="alert"></p>
+                <button class="submit-button" type="submit">Place my order</button>
+              </form>
+              <div class="confirmation" id="confirmation" role="status" tabindex="-1" hidden>
+                <h3>Order received, shukriya!</h3>
+                <p id="confirmation-message"></p>
+                <p>We’ll get your dinner ready and deliver it garam. See you soon!</p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-inner">
+        <p><strong>Ghar Ki Handi</strong> · Open every day, 7:00 pm to 1:00 am</p>
+        <p>Delivering to all LUMS hostels</p>
+      </div>
+    </footer>
+
+    <script>
+      const menuCards = [...document.querySelectorAll(".menu-card")];
+      const cart = new Map(menuCards.map((card) => [
+        card.dataset.id,
+        {
+          name: card.dataset.name,
+          price: Number(card.dataset.price),
+          quantity: 0,
+          card,
+        },
+      ]));
+      const orderItems = document.querySelector("#order-items");
+      const emptyOrder = document.querySelector("#empty-order");
+      const subtotalElement = document.querySelector("#subtotal");
+      const deliveryElement = document.querySelector("#delivery-fee");
+      const totalElement = document.querySelector("#grand-total");
+      const deliveryNote = document.querySelector("#delivery-note");
+      const orderForm = document.querySelector("#order-form");
+      const formError = document.querySelector("#form-error");
+      const confirmation = document.querySelector("#confirmation");
+      const confirmationMessage = document.querySelector("#confirmation-message");
+
+      const formatPrice = (amount) => `Rs ${amount.toLocaleString("en-US")}`;
+
+      function renderOrder() {
+        let subtotal = 0;
+        let itemCount = 0;
+        orderItems.replaceChildren();
+
+        for (const item of cart.values()) {
+          item.card.querySelector(".quantity").textContent = item.quantity;
+          if (item.quantity === 0) continue;
+
+          itemCount += item.quantity;
+          subtotal += item.price * item.quantity;
+          const row = document.createElement("li");
+          row.className = "order-row";
+          const itemLabel = document.createElement("span");
+          itemLabel.textContent = `${item.name} × ${item.quantity}`;
+          const itemPrice = document.createElement("strong");
+          itemPrice.textContent = formatPrice(item.price * item.quantity);
+          row.append(itemLabel, itemPrice);
+          orderItems.append(row);
+        }
+
+        const delivery = subtotal === 0 || subtotal >= 1500 ? 0 : 100;
+        emptyOrder.hidden = itemCount > 0;
+        subtotalElement.textContent = formatPrice(subtotal);
+        deliveryElement.textContent = delivery === 0 && subtotal > 0 ? "Free" : formatPrice(delivery);
+        totalElement.textContent = formatPrice(subtotal + delivery);
+        deliveryNote.textContent = subtotal >= 1500
+          ? "Your order qualifies for free delivery. Nice one!"
+          : "Delivery is Rs 100, or free when your food adds up to Rs 1,500.";
+      }
+
+      document.querySelector("#menu").addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-action]");
+        if (!button) return;
+
+        const card = button.closest(".menu-card");
+        const item = cart.get(card.dataset.id);
+        if (button.dataset.action === "add") {
+          item.quantity += 1;
+        } else {
+          item.quantity = Math.max(0, item.quantity - 1);
+        }
+        confirmation.hidden = true;
+        renderOrder();
+      });
+
+      orderForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        formError.textContent = "";
+        const subtotal = [...cart.values()].reduce((sum, item) => sum + item.price * item.quantity, 0);
+        if (subtotal === 0) {
+          formError.textContent = "Add at least one dish to your order first.";
+          document.querySelector("#menu").scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+
+        if (!orderForm.reportValidity()) return;
+
+        const formData = new FormData(orderForm);
+        const name = formData.get("name").trim();
+        const phone = formData.get("phone");
+        if (!/^03\d{9}$/.test(phone)) {
+          formError.textContent = "Please enter 11 digits starting with 03, with no spaces or dashes.";
+          document.querySelector("#phone").focus();
+          return;
+        }
+
+        const formattedPhone = phone.replace(/^(\d{4})(\d{7})$/, "$1-$2");
+        confirmationMessage.textContent = `Thanks, ${name}! Your order total is ${totalElement.textContent}. We’ll call ${formattedPhone} if we need you.`;
+        confirmation.hidden = false;
+        confirmation.focus();
+        confirmation.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+
+      renderOrder();
+    </script>
+  </body>
+</html>
