@@ -199,6 +199,38 @@
         transform: rotate(5deg);
       }
 
+      .special-banner {
+        background: var(--saffron);
+      }
+
+      .special-inner {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 24px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .special-copy .eyebrow {
+        margin-bottom: 5px;
+      }
+
+      .special-copy h2 {
+        margin-bottom: 5px;
+        color: var(--terracotta);
+        font-size: 1.65rem;
+      }
+
+      .special-copy p:last-child {
+        margin-bottom: 0;
+      }
+
+      .special-button {
+        flex: 0 0 auto;
+      }
+
       .section {
         width: min(1120px, calc(100% - 32px));
         margin: 0 auto;
@@ -218,6 +250,36 @@
 
       .section-heading p {
         margin-bottom: 0;
+      }
+
+      .menu-filters {
+        margin: 0 0 28px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .filter-label {
+        margin-right: 4px;
+        font-weight: 800;
+      }
+
+      .filter-button {
+        padding: 8px 16px;
+        border: 1px solid var(--green);
+        background: var(--cream);
+        color: var(--green);
+      }
+
+      .filter-button[aria-pressed="true"] {
+        background: var(--green);
+        color: var(--cream);
+      }
+
+      .filter-status {
+        margin: -16px 0 24px;
+        font-size: 0.9rem;
       }
 
       .menu-category + .menu-category {
@@ -519,6 +581,10 @@
           font-size: 6.5rem;
         }
 
+        .special-inner {
+          align-items: flex-start;
+        }
+
         .menu-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -541,6 +607,11 @@
 
         .main-nav a {
           font-size: 0.86rem;
+        }
+
+        .special-inner {
+          flex-direction: column;
+          gap: 14px;
         }
 
         .section,
@@ -601,6 +672,17 @@
         </div>
       </section>
 
+      <section class="special-banner" aria-labelledby="special-title">
+        <div class="special-inner">
+          <div class="special-copy">
+            <p class="eyebrow">Tonight's special</p>
+            <h2 id="special-title">Chicken Handi · Rs 650</h2>
+            <p>Tender chicken in a creamy, slow-cooked tomato gravy. A little taste of ghar ka pyaar.</p>
+          </div>
+          <a class="button special-button" href="#menu">See the menu</a>
+        </div>
+      </section>
+
       <section class="section" id="menu" aria-labelledby="menu-title">
         <div class="section-heading">
           <p class="eyebrow">Made fresh tonight</p>
@@ -608,10 +690,18 @@
           <p>Comfort food, generous portions, and just the right amount of ghar ka pyaar.</p>
         </div>
 
+        <div class="menu-filters" role="group" aria-label="Filter menu by spice level">
+          <span class="filter-label">Spice level</span>
+          <button class="filter-button" type="button" data-spice-filter="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-spice-filter="mild" aria-pressed="false">Mild</button>
+          <button class="filter-button" type="button" data-spice-filter="spicy" aria-pressed="false">Spicy</button>
+        </div>
+        <p class="filter-status" id="menu-filter-status" aria-live="polite">Showing all dishes.</p>
+
         <div class="menu-category">
           <h3 class="category-title">Handi</h3>
           <div class="menu-grid">
-            <article class="menu-card" data-id="chicken-handi" data-name="Chicken Handi" data-price="650">
+            <article class="menu-card" data-id="chicken-handi" data-name="Chicken Handi" data-price="650" data-spice="2">
               <div class="dish-card-top">
                 <span class="dish-emoji" aria-hidden="true">🍛</span>
                 <span class="bestseller-badge">Bestseller</span>
@@ -625,7 +715,7 @@
                 <button class="add-button" type="button" data-action="add" aria-label="Add one Chicken Handi">Add +</button>
               </div>
             </article>
-            <article class="menu-card" data-id="beef-handi" data-name="Beef Handi" data-price="750">
+            <article class="menu-card" data-id="beef-handi" data-name="Beef Handi" data-price="750" data-spice="3">
               <span class="dish-emoji" aria-hidden="true">🥘</span>
               <h3 class="dish-name">Beef Handi</h3>
               <p class="dish-description">Soft beef simmered low and slow with warm house spices.</p>
@@ -636,7 +726,7 @@
                 <button class="add-button" type="button" data-action="add" aria-label="Add one Beef Handi">Add +</button>
               </div>
             </article>
-            <article class="menu-card" data-id="daal-handi" data-name="Daal Handi" data-price="450">
+            <article class="menu-card" data-id="daal-handi" data-name="Daal Handi" data-price="450" data-spice="1">
               <span class="dish-emoji" aria-hidden="true">🍲</span>
               <h3 class="dish-name">Daal Handi</h3>
               <p class="dish-description">Creamy lentils finished with a fragrant garlic tarka.</p>
@@ -653,7 +743,7 @@
         <div class="menu-category">
           <h3 class="category-title">Rice</h3>
           <div class="menu-grid">
-            <article class="menu-card" data-id="chicken-biryani" data-name="Chicken Biryani" data-price="500">
+            <article class="menu-card" data-id="chicken-biryani" data-name="Chicken Biryani" data-price="500" data-spice="2">
               <div class="dish-card-top">
                 <span class="dish-emoji" aria-hidden="true">🍚</span>
                 <span class="bestseller-badge">Bestseller</span>
@@ -667,7 +757,7 @@
                 <button class="add-button" type="button" data-action="add" aria-label="Add one Chicken Biryani">Add +</button>
               </div>
             </article>
-            <article class="menu-card" data-id="chicken-pulao" data-name="Chicken Pulao" data-price="450">
+            <article class="menu-card" data-id="chicken-pulao" data-name="Chicken Pulao" data-price="450" data-spice="1">
               <span class="dish-emoji" aria-hidden="true">🍛</span>
               <h3 class="dish-name">Chicken Pulao</h3>
               <p class="dish-description">Mellow, aromatic rice cooked in a rich chicken yakhni.</p>
@@ -678,7 +768,7 @@
                 <button class="add-button" type="button" data-action="add" aria-label="Add one Chicken Pulao">Add +</button>
               </div>
             </article>
-            <article class="menu-card" data-id="chana-pulao" data-name="Chana Pulao" data-price="400">
+            <article class="menu-card" data-id="chana-pulao" data-name="Chana Pulao" data-price="400" data-spice="1">
               <span class="dish-emoji" aria-hidden="true">🍚</span>
               <h3 class="dish-name">Chana Pulao</h3>
               <p class="dish-description">Comforting basmati and chickpeas with gentle whole spices.</p>
@@ -695,7 +785,7 @@
         <div class="menu-category">
           <h3 class="category-title">Meetha</h3>
           <div class="menu-grid">
-            <article class="menu-card" data-id="kheer" data-name="Kheer" data-price="250">
+            <article class="menu-card" data-id="kheer" data-name="Kheer" data-price="250" data-spice="1">
               <span class="dish-emoji" aria-hidden="true">🍮</span>
               <h3 class="dish-name">Kheer</h3>
               <p class="dish-description">Slow-cooked rice pudding with cardamom and a little crunch.</p>
@@ -706,7 +796,7 @@
                 <button class="add-button" type="button" data-action="add" aria-label="Add one Kheer">Add +</button>
               </div>
             </article>
-            <article class="menu-card" data-id="gulab-jamun" data-name="Gulab Jamun" data-price="200">
+            <article class="menu-card" data-id="gulab-jamun" data-name="Gulab Jamun" data-price="200" data-spice="1">
               <span class="dish-emoji" aria-hidden="true">🍩</span>
               <h3 class="dish-name">Gulab Jamun</h3>
               <p class="dish-description">Two soft, syrupy bites of classic desi sweetness.</p>
@@ -717,7 +807,7 @@
                 <button class="add-button" type="button" data-action="add" aria-label="Add one Gulab Jamun">Add +</button>
               </div>
             </article>
-            <article class="menu-card" data-id="suji-halwa" data-name="Suji Halwa" data-price="250">
+            <article class="menu-card" data-id="suji-halwa" data-name="Suji Halwa" data-price="250" data-spice="1">
               <span class="dish-emoji" aria-hidden="true">🍯</span>
               <h3 class="dish-name">Suji Halwa</h3>
               <p class="dish-description">Warm semolina halwa with ghee, nuts and cardamom.</p>
@@ -816,8 +906,32 @@
       const formError = document.querySelector("#form-error");
       const confirmation = document.querySelector("#confirmation");
       const confirmationMessage = document.querySelector("#confirmation-message");
+      const filterButtons = [...document.querySelectorAll("[data-spice-filter]")];
+      const filterStatus = document.querySelector("#menu-filter-status");
+      const menuCategories = [...document.querySelectorAll(".menu-category")];
 
       const formatPrice = (amount) => `Rs ${amount.toLocaleString("en-US")}`;
+
+      function filterMenu(filter) {
+        for (const card of menuCards) {
+          const spiceLevel = Number(card.dataset.spice);
+          card.hidden = filter === "mild"
+            ? spiceLevel !== 1
+            : filter === "spicy" && spiceLevel < 2;
+        }
+
+        for (const category of menuCategories) {
+          category.hidden = ![...category.querySelectorAll(".menu-card")].some((card) => !card.hidden);
+        }
+
+        for (const button of filterButtons) {
+          button.setAttribute("aria-pressed", String(button.dataset.spiceFilter === filter));
+        }
+
+        filterStatus.textContent = filter === "all"
+          ? "Showing all dishes."
+          : `Showing ${filter} dishes.`;
+      }
 
       function renderOrder() {
         let subtotal = 0;
@@ -863,6 +977,11 @@
         }
         confirmation.hidden = true;
         renderOrder();
+      });
+
+      document.querySelector("#menu").addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-spice-filter]");
+        if (button) filterMenu(button.dataset.spiceFilter);
       });
 
       orderForm.addEventListener("submit", (event) => {
